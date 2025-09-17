@@ -1,0 +1,2 @@
+select * from products p left join public.categories c
+    on c.id = p.category_id where c.id=4;
