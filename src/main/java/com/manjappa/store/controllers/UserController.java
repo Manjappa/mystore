@@ -1,6 +1,7 @@
 package com.manjappa.store.controllers;
 
 import com.manjappa.store.dtos.*;
+import com.manjappa.store.entities.Role;
 import com.manjappa.store.entities.User;
 import com.manjappa.store.mapper.UserMapper;
 import com.manjappa.store.repositories.UserRepository;
@@ -79,6 +80,7 @@ public class UserController {
         }
         User user = userMapper.toUserEntity(userRegisterDto);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Role.USER);
         userRepository.save(user);
         return ResponseEntity.ok(userMapper.toDto(user));
     }

@@ -26,7 +26,6 @@ public class Cart {
     @OneToMany(mappedBy = "cart", cascade = {CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<CartItem> items = new LinkedHashSet<>();
 
-
     public BigDecimal getTotalPrice() {
 //        //[10, 20, 30 , 40]
 //        BigDecimal total = BigDecimal.ZERO;
@@ -61,4 +60,7 @@ public class Cart {
         items.clear();
     }
 
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
 }

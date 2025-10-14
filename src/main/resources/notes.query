@@ -1,2 +1,40 @@
 select * from products p left join public.categories c
     on c.id = p.category_id where c.id=4;
+
+
+create table orders
+(
+    id          bigint                              not null
+        constraint orders_pk
+            primary key,
+    customer_id bigint                              not null,
+    status      varchar(20),
+    created_at  TIMESTAMP default current_timestamp not null,
+    total_price DECIMAL(10, 2)                      not null
+);
+ALTER TABLE orders
+    ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+
+create table oder_items
+(
+    id     BIGSERIAL  bigint        not null
+        constraint oder_items_pk
+         SERIAL    primary key,
+    oder_id     bigint        not null,
+    prdc_id     bigint        not null,
+    unit_price  decimal(1, 2) not null,
+    quantity    integer       not null,
+    total_price decimal(1, 2) not null,
+    constraint oder_items_orders_id_fk
+        foreign key (order_id) references orders (id),
+    constraint oder_items_products_id_fk
+        foreign key (product_id) references products
+);
+
+ALTER TABLE orders
+    ALTER COLUMN created_at SET DEFAULT CURRENT_TIMESTAMP;
+
+INSERT INTO orders (customer_id, status, total_price) VALUES (19, 'Pending', 4.0);
+
+select * from cart_items where cart_items.cart_id='d4e414b6-b79a-4cea-a7b3-3760d99933ca';
+select * from products
