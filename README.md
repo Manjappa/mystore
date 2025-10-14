@@ -1,6 +1,6 @@
 # The Ultimate Spring Boot Project for E commrce.
 To get started, clone the repository to your local machine:
-git clone [https://github.com/mosh-hamedani/spring-api-starter](https://github.com/Manjappa/mystore.git)
+git clone https://github.com/Manjappa/mystore.git
 cd spring-api-starter
 
 #Notes
