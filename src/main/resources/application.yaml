@@ -15,7 +15,7 @@ spring:
     accessTokenExpiration: 7200 # 15 mins=900, 1hr=7200
     refreshTokenExpiration: 604800 #7 days
   flyway:
-    enabled: true
+    enabled: false
   profiles:
     active: dev
 management:
