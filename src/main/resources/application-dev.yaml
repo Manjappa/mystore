@@ -7,7 +7,7 @@ spring:
     password: root
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
+    #show-sql: true
     hibernate:
       ddl-auto: update
 #  jwt:
